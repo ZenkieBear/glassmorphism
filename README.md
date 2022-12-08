@@ -1,6 +1,6 @@
-# Glass Morphism
+# Glass Morphism Generator
 
-It's a glass-morphism `CSS` generator, help artists/front-end engineers to design their components
+It's a glass-morphism `CSS` generator, help artists/front-end developer to design their components faster.
 
 ## Recommended IDE Setup
 
