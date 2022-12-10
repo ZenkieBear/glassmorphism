@@ -1,4 +1,4 @@
-# Glass Morphism Generator
+# Glassmorphism Generator
 
 It's a glass-morphism `CSS` generator, help designer/front-end developer to design their components faster.
 
@@ -30,3 +30,8 @@ npm run build
 
 Tips: There'll be a directory named `dist` generated, package it, and put it into your *Web Server*, such as [Nginx](http://nginx.org/), [Apache](https://www.apache.org/)...
 
+
+
+## License
+
+`Glassmorphism Generator` is an opensource software licensed by [MIT](https://github.com/ZenkieBear/glassmorphism/blob/main/LICENSE)

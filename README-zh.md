@@ -1,10 +1,10 @@
-# Glass Morphism Generator
+# Glassmorphism Generator
 
 这是一个 **玻璃拟态** `CSS` 生成器，用于帮助设计师、前端开发者来快速设计组件。
 
 
 
-## Recommended IDE Setup
+## 推荐的开发环境
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (禁用Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
@@ -32,3 +32,8 @@ npm run build
 
 Tips: 将会有一个名为`dist`的目录生成，将它压缩成包并放入你的[Web容器](https://zh.wikipedia.org/wiki/Web%E5%AE%B9%E5%99%A8)，如： [Nginx](http://nginx.org/), [Apache](https://www.apache.org/)...
 
+
+
+## 证书
+
+`Glassmorphism Generator`采用[MIT](https://github.com/ZenkieBear/glassmorphism/blob/main/LICENSE)作为开源许可证。
