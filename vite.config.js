@@ -2,6 +2,9 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'node:path'
 
+const resolve = (relativePath) => {
+  return path.resolve(__dirname, relativePath);
+}
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
@@ -12,16 +15,19 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: '@', replacement: path.resolve(__dirname, 'src') 
+        find: '@', replacement: resolve('src') 
       },
       {
-        find: '@assets', replacement: path.resolve(__dirname, 'src/assets')
+        find: '@assets', replacement: resolve('src/assets')
       },
       {
-        find: '@views', replacement: path.resolve(__dirname, 'src/views')
+        find: '@views', replacement: resolve('src/views')
       },
       {
-        find: '@routes', replacement: path.resolve(__dirname, 'src/routes')
+        find: '@routes', replacement: resolve('src/routes')
+      },
+      {
+        find: '@components', replacement: resolve('src/components')
       }
     ]
   }
