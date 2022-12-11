@@ -1,11 +1,20 @@
 <template>
     <div>
-        <input type="range"
-            class="slider"
-            v-model="b"/>
-        <NumberInput v-model="b"
-            @changed="handleChange"/>
-        value: {{b}}
+        <header>
+            Glassmorphism Generator
+        </header>
+        <main>
+            <input type="range"
+                class="slider"
+                v-model="b"/>
+            <NumberInput v-model="b"
+                @changed="handleChange"/>
+            value: {{b}}
+        </main>
+        <footer>
+            Copyright Zenkie Bear
+            <span>dsvgdfhjkjh1s11qwerthyjuiyjhgbzswar5urhfdv rsd</span>
+        </footer>
     </div>
 </template>
 
@@ -20,4 +29,7 @@ const handleChange = (value: number) => {
 </script>
 
 <style lang="less" scoped>
+span {
+    color: black
+}
 </style>

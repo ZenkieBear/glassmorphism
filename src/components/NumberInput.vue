@@ -3,7 +3,7 @@
         <input type="number"
             v-model="innerValue"
             class="number"
-            @input="$emit('update:modelValue', innerValue)"/>    <!-- @input="$emit('changed', innerValue)" -->
+            @input="$emit('update:modelValue', innerValue)"/>
     </span>
 </template>
 

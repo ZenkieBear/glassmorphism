@@ -1,0 +1,18 @@
+@font-face {
+    font-family: Poppins;
+    src: url('@assets/style/fonts/Poppins/Poppins-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: Kanit;
+    src: url('@assets/style/fonts/Kanit/Kanit-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: Kanit;
+    src: url('@assets/style/fonts/Kanit/Kanit-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}

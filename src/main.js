@@ -1,7 +1,15 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from '@routes/index.ts';
+// styles
 import '@assets/style/common.less';
+import '@assets/style/fonts.css';
+// import '@assets/style/fontawesome/css/fontawesome.min.css';
+// import '@assets/style/fontawesome/css/brands.min.css';
+// import '@assets/style/fontawesome/css/solid.min.css';
+import '@assets/style/fontawesome/css/fontawesome.css';
+import '@assets/style/fontawesome/css/brands.css';
+import '@assets/style/fontawesome/css/solid.css';
 
 const app = createApp(App)
 .use(router);

@@ -1,10 +1,19 @@
 /* common style */
+@primary-color: rgb(83, 82, 237);
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Poppins;
 }
-@primary-color: rgb(83, 82, 237);
+html {
+    font-size: 16px;
+    background: url(https://picsum.photos/1920/1080) fixed;
+}
+::selection {
+    background-color: white;
+    color: @primary-color;
+}
 
 /* components */
 // 滑块
