@@ -1,3 +1,10 @@
+
+
+<img src="https://glassmorphism.art/logo.png" style="width: 100px; border-radius: 5px" />
+
+
+
+
 # Glassmorphism Generator
 
 It's a glass-morphism `CSS` generator, help designer/front-end developer to design their components faster.

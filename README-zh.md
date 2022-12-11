@@ -1,3 +1,9 @@
+
+
+<img src="https://glassmorphism.art/logo.png" style="width: 100px; border-radius: 5px" />
+
+
+
 # Glassmorphism Generator
 
 这是一个 **玻璃拟态** `CSS` 生成器，用于帮助设计师、前端开发者来快速设计组件。
