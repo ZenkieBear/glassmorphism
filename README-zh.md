@@ -1,6 +1,7 @@
 
 
-<img src="https://glassmorphism.art/logo.png" style="width: 100px; border-radius: 5px" />
+<div align="center">
+  <a href="https://glassmorphism.art/"><img src="https://glassmorphism.art/logo.png" style="width: 100px; border-radius: 5px" /></a></div>
 
 
 
