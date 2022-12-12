@@ -20,7 +20,7 @@
                     Glassmorphism Generator
                 </div>
                 <span class="slogan">
-                    It's a glassmorphism CSS generator, help designers/frontend engineers to design their components.
+                    {{ $t('welcome.desc') }}
                 </span>
                 <div class="panel">
                     <a href="">Get Start</a>
