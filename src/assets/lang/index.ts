@@ -4,7 +4,7 @@ import en from './en.ts';
 
 const i18n = createI18n({
     globalInjection: true,
-    locale: 'en',
+    locale: 'zh',
     messages: {
         zh: zh,
         en: en
