@@ -5,9 +5,9 @@
                 <img src="/logo.png" alt="Logo" id="logo">
             </a>
             <nav>
-                <a href="">Start</a>
-                <a href="">Download</a>
-                <a href="">About</a>
+                <a href="">{{$t('nav.start')}}</a>
+                <a href="">{{$t('nav.download')}}</a>
+                <a href="">{{$t('nav.about')}}</a>
                 <a href="https://github.com/ZenkieBear/glassmorphism">
                     <i class="fa-brands fa-github" title="star"></i>
                 </a>
@@ -23,7 +23,7 @@
                     {{ $t('welcome.desc') }}
                 </span>
                 <div class="panel">
-                    <a href="">Get Start</a>
+                    <a href="">{{$t("welcome.start")}}</a>
                 </div>
             </div>
         </main>
