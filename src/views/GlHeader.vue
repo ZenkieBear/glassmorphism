@@ -5,9 +5,9 @@
             <img src="/logo.png" alt="Logo" id="logo">
         </a>
         <nav>
-            <a href="" class="gl-menu">Start</a>
-            <a href="" class="gl-menu">Download</a>
-            <a href="" class="gl-menu">About</a>
+            <a href="" class="gl-menu">{{$t('nav.start')}}</a>
+            <a href="" class="gl-menu">{{$t('nav.download')}}</a>
+            <a href="" class="gl-menu">{{$t('nav.about')}}</a>
             <!-- this might be an single component future -->
             <span class="gl-sub-menu">
                 <i class="fa-solid fa-earth" />
