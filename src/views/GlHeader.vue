@@ -5,12 +5,12 @@
             <img src="/logo.png" alt="Logo" id="logo">
         </a>
         <nav>
-            <a href="" class="gl-menu">Start</a>
-            <a href="" class="gl-menu">Download</a>
-            <a href="" class="gl-menu">About</a>
+            <a href="" class="gl-menu">{{$t('nav.start')}}</a>
+            <a href="" class="gl-menu">{{$t('nav.download')}}</a>
+            <a href="" class="gl-menu">{{$t('nav.about')}}</a>
             <!-- this might be an single component future -->
             <span class="gl-sub-menu">
-                <i class="fa-solid fa-earth" />
+                <i class="fa-solid fa-globe" />
                 <ul>
                     <li v-for="lang in langs"
                         @click="toggleLang(lang.value)">
@@ -89,7 +89,7 @@ header {
         .gl-sub-menu {
             position: relative;
             display: inline-blocks;
-            ul {
+            &>ul {
                 display: none;
                 position: absolute;
                 top: calc(100%);
@@ -100,7 +100,7 @@ header {
                 border-radius: 10px;
                 background: rgba(255, 255, 255, .8);
                 color: @primary-color;
-                li {
+                &>li {
                     padding: 5px;
                     border-radius: 5px;
                     cursor: pointer;
@@ -122,13 +122,13 @@ header {
         nav {
             .gl-menu, .gl-sub-menu{
                 background: rgba(255, 255, 255, .6);
-            }
-            .gl-menu:hover {
-                background: white;
-                color: @primary-color;
-            }
-            .gl-menu:active {
-                background: rgba(255, 255, 255, .6);
+                &:hover {
+                    background: white;
+                    color: @primary-color;
+                }
+                &:active {
+                    background: rgba(255, 255, 255, .6);
+                }
             }
         }
     }
