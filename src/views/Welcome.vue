@@ -1,19 +1,6 @@
 <template>
     <div>
-        <header>
-            <a href="/">
-                <img src="/logo.png" alt="Logo" id="logo">
-            </a>
-            <nav>
-                <a href="">Start</a>
-                <a href="">Download</a>
-                <a href="">About</a>
-                <a href="https://github.com/ZenkieBear/glassmorphism">
-                    <i class="fa-brands fa-github" title="star"></i>
-                </a>
-            </nav>
-        </header>
-        <div id="space"></div>
+        <gl-header/>
         <main>
             <div id="banner">
                 <div class="title">
@@ -43,84 +30,17 @@
     </div>
 </template>
 
+<script lang="ts" setup>
+import GlHeader from '@views/GlHeader.vue';
+</script>
+
 <style lang="less" scoped>
 @primary-color: #5352ed;
+@font-color: darken(@primary-color, 20%);
 @default-filter: blur(8px);
 @transition-eased2s: .2s ease;
 @transition-eased3s: .3s ease;
-@keyframes shake {
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
-}
-header {
-    @header-height: 100px;
-    width: 100vw;
-    height: @header-height;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid @primary-color;
-    padding: 0 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    transition: @transition-eased2s;
-    #logo {
-        width: 60px;
-        height: 60px;
-        border-radius: 18px;
-    }
-    &+#space {
-        height: @header-height;
-    }
-    nav {
-        padding-right: 10px;
-        a {
-            color: white;
-            text-decoration: none;
-            display: inline-block;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: @transition-eased3s;
-        }
-        a+a {
-            margin-left: 10px;
-        }
-    }
-    &:hover {
-        backdrop-filter: @default-filter brightness(.8) saturate(.3);
-        background: rgba(83, 82, 237, .5);
-        border: none;
-        nav {
-            a{
-                background: rgba(255, 255, 255, .6);
-            }
-            a:hover {
-                background: white;
-                color: @primary-color;
-            }
-            a:active {
-                background: rgba(255, 255, 255, .6);
-            }
-        }
-    }
-}
+
 main {
     #banner {
         width: 100vw;
@@ -137,7 +57,7 @@ main {
         }
         .slogan {
             font-size: 1.2rem;
-            color: darken(@primary-color, 20%);
+            color: @font-color;
         }
         .panel {
             margin-top: 40px;
@@ -170,11 +90,11 @@ footer {
     padding: 30px 50px 50px;
     background-color: rgba(255, 255, 255, .6);
     backdrop-filter: @default-filter;
-    color: darken(@primary-color, 20%);
+    color: @font-color;
     a.link {
         margin: 0 5px;
         text-decoration: none;
-        color: darken(@primary-color, 20%);
+        color: @font-color;
         position: relative;
         overflow: hidden;
         display: inline-block;
