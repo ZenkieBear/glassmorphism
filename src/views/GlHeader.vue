@@ -29,16 +29,11 @@
 
 <script lang="ts" setup>
 import i18n, { langs } from '@assets/lang/index.ts';
-import { ref } from 'vue';
 
-const langsVisible = ref(false);
-
-const toggleVisible = () => {
-    langsVisible.value = !langsVisible.value;
-}
-const toggleLang = (lang: String) => {
+const toggleLang = (lang: string) => {
     i18n.global.locale = lang;
-}
+    localStorage.setItem('lang', lang);
+};
 </script>
 
 <style lang="less" scoped>

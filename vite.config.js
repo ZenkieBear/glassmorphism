@@ -28,6 +28,9 @@ export default defineConfig({
       },
       {
         find: '@components', replacement: resolve('src/components')
+      },
+      {
+        find: 'vue-i18n', replacement: 'vue-i18n/dist/vue-i18n.cjs.js'
       }
     ]
   }
