@@ -1,13 +1,13 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
 import Welcome from '@views/Welcome.vue';
 import Home from '@views/Home.vue';
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes: [
         {
             path: '/',
-            // alias: ['/welcom'],
+            alias: ['/welcome', '/index', '/index.html', '/index.htm'],
             component: Welcome
         },
         {
