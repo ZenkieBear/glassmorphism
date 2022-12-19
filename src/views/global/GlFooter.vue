@@ -1,29 +1,30 @@
 <template>
     <footer>
-            <nav>
-                <span>
-                    Star on 
-                    <a href="" class="link">
-                        <i class="fa-brands fa-github"></i>
-                    </a>
-                </span>
-            </nav>
-            <div class="copyright">
-                Copyright 2022 <a href="https://github.com/ZenkieBear" class="link">Zenkie Bear</a> .
-            </div>
-        </footer>
+        <nav>
+            <span>
+                Star on 
+                <a href="" class="link">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </span>
+        </nav>
+        <div class="copyright">
+            Copyright 2022 <a href="https://github.com/ZenkieBear" class="link">Zenkie Bear</a> .
+        </div>
+    </footer>
 </template>
 
 <style lang="less" scoped>
+@default-filter: blur(8px);
 @primary-color: #5352ed;
 @font-color: darken(@primary-color, 20%);
-@default-filter: blur(8px);
 
 footer {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    // may we should define the height property, not marigin-top
     // margin-top: calc(100vh - 100px - 5vw - 20vw - 1.2rem - 40px - 20px - 1.5rem - 3vw );
     // margin-top: clamp(50px, calc(100vh - 160px - 28vw - 2.7rem), 100px);
     height: clamp(50px, 50vh, 50vh);

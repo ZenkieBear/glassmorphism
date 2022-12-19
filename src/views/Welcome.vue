@@ -1,6 +1,7 @@
 <template>
     <div>
         <gl-header/>
+        <div class="space-lg"></div>
         <main>
             <div id="banner">
                 <div class="title">

@@ -5,7 +5,7 @@
             <img src="/logo.png" alt="Logo" id="logo">
         </a>
         <nav>
-            <a href="" class="gl-menu">{{$t('nav.start')}}</a>
+            <router-link to="/home" class="gl-menu">{{$t('nav.start')}}</router-link>
             <a href="" class="gl-menu">{{$t('nav.download')}}</a>
             <a href="" class="gl-menu">{{$t('nav.about')}}</a>
             <!-- this might be an single component future -->
@@ -23,7 +23,8 @@
             </a>
         </nav>
     </header>
-    <div id="space"></div>
+    <!-- the space moved to referencers -->
+    <!-- <div id="space"></div> -->
 </template>
 
 
@@ -61,9 +62,6 @@ header {
         width: 60px;
         height: 60px;
         border-radius: 18px;
-    }
-    &+#space {
-        height: @header-height;
     }
     nav {
         padding-right: 10px;
