@@ -45,7 +45,7 @@ onMounted(() => {
 
 main {
     #banner {
-        width: 100vw;
+        width: 100%;
         padding: 5vw 3vw 3vw;
         background-color: rgba(255, 255, 255, .6);
         backdrop-filter: @default-filter;
