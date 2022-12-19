@@ -17,6 +17,19 @@ html {
     background-color: white;
     color: @primary-color;
 }
+// 滚动条
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, .2);
+}
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, .2);
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: @primary-color;
+}
 
 /* components */
 // 滑块
@@ -68,4 +81,9 @@ html {
     &::-webkit-inner-spin-button {
         appearance: none;
     }
+}
+
+// space
+.space {
+    height: 60px;
 }
