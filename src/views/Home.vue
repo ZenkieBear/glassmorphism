@@ -5,14 +5,14 @@
             <!-- side bar -->
             <aside class="side-bar">
                 <div class="space-lg"></div>
-                
+                <gg-slider v-model="shared"/>
+                <gg-number-input v-model="shared"
+                    type="number"
+                    :max="100"
+                    :min="0"
+                    @changed="handleChange"/>
+                value: {{shared}}
             </aside>
-            <!-- <input type="range"
-                class="slider"
-                v-model="b"/>
-            <NumberInput v-model="b"
-                @changed="handleChange"/>
-            value: {{b}} -->
         </main>
         <gl-footer />
     </div>
@@ -20,11 +20,12 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import NumberInput from '@components/NumberInput.vue';
+import GgNumberInput from '@components/GgNumberInput.vue';
+import GgSlider from '@components/GGSlider.vue';
 import GlHeader from '@views/global/GlHeader.vue';
 import GlFooter from '@views/global/GlFooter.vue';
 
-const b = ref(0);
+const shared = ref(0);
 const handleChange = (value: number) => {
     console.log('value', value)
 }
