@@ -3,6 +3,8 @@
         class="slider"
         v-model="innerValue"
         ref="slider"
+        :max="props.max"
+        :min="props.min"
         @input="$emit('update:modelValue', slider.valueAsNumber)"/>
 </template>
 
@@ -11,6 +13,12 @@ import { ref, watch } from 'vue';
 
 const props = defineProps({
     modelValue: {
+        type: Number
+    },
+    max: {
+        type: Number
+    },
+    min: {
         type: Number
     }
 });
