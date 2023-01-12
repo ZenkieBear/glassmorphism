@@ -5,6 +5,9 @@
     margin: 0;
     box-sizing: border-box;
     font-family: Poppins;
+    &:focus {
+        outline: 2px solid @primary-color;
+    }
 }
 li {
     list-style: none;
@@ -56,19 +59,21 @@ html {
 }
 
 // 文本框
-.number {
-    appearance: none;
+.gg-input {
     border: none;
-    outline: none;
     line-height: 36px;
-    border-radius: 10px;
+    border-radius: 5px;
     background: lighten(@primary-color, 25%);
-    position: relative;
-    &::-webkit-textfield-decoration-container {
-        padding-left: 5px;
+    padding-left: 5px;
+    &+.gg-input {
+        margin-left: 5px;
+        margin-top: 5px;
     }
-    &::-webkit-inner-spin-button {
+    &.gg-number-input {
         appearance: none;
+        &::-webkit-inner-spin-button {
+            appearance: none;
+        }
     }
 }
 .space {

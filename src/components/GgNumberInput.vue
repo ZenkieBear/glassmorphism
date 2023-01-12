@@ -1,7 +1,7 @@
 <template>
     <span>
         <input v-model="innerValue"
-            class="number"
+            class="gg-input gg-number-input"
             ref="inner"
             type="number" :min="min" :max="max"
             @input="$emit('update:modelValue', innerValue ?? 0)"/>

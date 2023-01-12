@@ -12,7 +12,8 @@
                         </li>
                         <li>
                             <span class="label">Color</span>
-                            <gg-color-picker v-model="state.color"/>
+                            <gg-color-picker v-model="state.color"
+                                tabindex="1"/>
                         </li>
                     </ul>
                 </div>
@@ -20,9 +21,9 @@
             <main>
                 <div id="code"
                     :style="{
-                        backdropFilter: `blur(${state.blur}px)`
+                        backdropFilter: `blur(${state.blur}px)`,
+                        background: state.color
                     }">
-
                 </div>
             </main>
         </section>
@@ -41,13 +42,9 @@ import GgColorPicker from '@components/GgColorPicker.vue';
 // vars
 const state = reactive({
     blur: 8,
-    color: 'rgba(255, 255, 255, .6)'
+    color: 'rgba(55, 66, 250, .3)'
 })
 
-// methods
-const handleChange = (value: number) => {
-    console.log('value', value)
-}
 </script>
 
 <style lang="less" scoped>
@@ -84,6 +81,7 @@ main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    z-index: -1;
     #code {
         width: 400px;
         height: 250px;
