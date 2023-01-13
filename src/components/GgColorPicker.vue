@@ -256,6 +256,7 @@ watch(innerValue, value => {
     border-radius: 5px;
     display: inline-block;
     vertical-align: bottom;
+    cursor: pointer;
     &:focus {
         outline: 2px solid @primary-color;
     }
