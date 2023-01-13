@@ -24,14 +24,13 @@ footer {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    // may we should define the height property, not marigin-top
-    // margin-top: calc(100vh - 100px - 5vw - 20vw - 1.2rem - 40px - 20px - 1.5rem - 3vw );
-    // margin-top: clamp(50px, calc(100vh - 160px - 28vw - 2.7rem), 100px);
-    height: clamp(50px, 50vh, 50vh);
+    height: clamp(100px, 50vh, 50vh);
     padding: 30px 50px 50px;
     background-color: rgba(255, 255, 255, .6);
     backdrop-filter: @default-filter;
     color: @font-color;
+    position: relative;
+    z-index: 0;
     a.link {
         margin: 0 5px;
         text-decoration: none;

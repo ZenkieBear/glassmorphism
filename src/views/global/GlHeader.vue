@@ -1,15 +1,22 @@
 <template>
     <!-- Global header -->
     <header>
-        <a href="/">
+        <a href="/" tabindex="0">
             <img src="/logo.png" alt="Logo" id="logo">
         </a>
         <nav>
-            <router-link to="/home" class="gl-menu">{{$t('nav.start')}}</router-link>
-            <a href="" class="gl-menu">{{$t('nav.download')}}</a>
-            <a href="" class="gl-menu">{{$t('nav.about')}}</a>
+            <router-link to="/home"
+                class="gl-menu"
+                tabindex="1">{{$t('nav.start')}}</router-link>
+            <a href=""
+                class="gl-menu"
+                tabindex="2">{{$t('nav.download')}}</a>
+            <a href=""
+                class="gl-menu"
+                tabindex="3">{{$t('nav.about')}}</a>
             <!-- this might be an single component future -->
-            <span class="gl-sub-menu">
+            <span class="gl-sub-menu"
+                tabindex="4">
                 <i class="fa-solid fa-globe" />
                 <ul>
                     <li v-for="lang in langs"
@@ -18,13 +25,13 @@
                     </li>
                 </ul>
             </span>
-            <a href="https://github.com/ZenkieBear/glassmorphism" class="gl-menu">
+            <a href="https://github.com/ZenkieBear/glassmorphism"
+                class="gl-menu"
+                tabindex="5">
                 <i class="fa-brands fa-github" title="star"></i>
             </a>
         </nav>
     </header>
-    <!-- the space moved to referencers -->
-    <!-- <div id="space"></div> -->
 </template>
 
 
@@ -56,7 +63,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
     transition: @transition-eased2s;
     #logo {
         width: 60px;
