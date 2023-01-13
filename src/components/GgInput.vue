@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 const props = defineProps({
     modelValue: {
         type: String
@@ -16,7 +16,8 @@ const props = defineProps({
 const inner = ref();
 const innerValue = ref(props.modelValue);
 
+// hooks
 watch(() => props.modelValue, value => {
     innerValue.value = value ?? '';
-})
+});
 </script>

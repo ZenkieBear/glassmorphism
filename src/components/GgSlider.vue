@@ -1,16 +1,17 @@
 <template>
     <input type="range"
         class="slider"
-        v-model="innerValue"
         ref="slider"
+        v-model="innerValue"
         :max="props.max"
         :min="props.min"
         @input="$emit('update:modelValue', slider.valueAsNumber)"/>
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
+// vars
 const props = defineProps({
     modelValue: {
         type: Number
@@ -22,12 +23,16 @@ const props = defineProps({
         type: Number
     }
 });
-// this var save inner value
-const innerValue = ref(0);
 // this referenced to the element
 const slider = ref();
+// this var save inner value
+const innerValue = ref(props.modelValue);
 
+// hooks
+onMounted(() => {
+    innerValue.value = props.modelValue ?? 0;
+});
 watch(() => props.modelValue, value => {
     innerValue.value = value ?? 0;
-})
+});
 </script>

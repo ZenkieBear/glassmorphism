@@ -249,13 +249,12 @@ watch(innerValue, value => {
 @help-color: #5352ed;
 .previewer {
     position: relative;
-    z-index: 2001;
     width: 24px;
     height: 24px;
     background-color: red;
     border-radius: 5px;
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: middle;
     cursor: pointer;
     &:focus {
         outline: 2px solid @primary-color;
@@ -264,6 +263,7 @@ watch(innerValue, value => {
         position: absolute;
         top: 18px;
         left: 18px;
+        z-index: 2000;
         width: calc(300px + 30px + 10px + 10px * 2);
         padding: 10px;
         background-color: white;
