@@ -32,8 +32,6 @@
             </a>
         </nav>
     </header>
-    <!-- the space moved to referencers -->
-    <!-- <div id="space"></div> -->
 </template>
 
 
@@ -65,7 +63,7 @@ header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
     transition: @transition-eased2s;
     #logo {
         width: 60px;

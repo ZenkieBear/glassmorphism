@@ -7,13 +7,13 @@
                 <div class="toolbar">
                     <ul>
                         <li>
-                            <span class="label">Blur</span>
-                            <gg-slider v-model="state.blur" max="80"/>
-                        </li>
-                        <li>
                             <span class="label">Color</span>
                             <gg-color-picker v-model="state.color"
-                                tabindex="1"/>
+                                tabindex="6"/>
+                        </li>
+                        <li>
+                            <span class="label">Blur</span>
+                            <gg-slider v-model="state.blur" :max="80"/>
                         </li>
                     </ul>
                 </div>
@@ -24,6 +24,10 @@
                         backdropFilter: `blur(${state.blur}px)`,
                         background: state.color
                     }">
+                    <!-- 木有办法，prism会按照格式渲染 -->
+<pre><code class="language-css">.glass {
+    <template v-if="state.blur">backdrop-filter: <template v-if="state.blur">blur({{ state.blur }})</template>;</template>
+}</code></pre>
                 </div>
             </main>
         </section>
@@ -38,13 +42,14 @@ import GgSlider from '@components/GGSlider.vue';
 import GlHeader from '@views/global/GlHeader.vue';
 import GlFooter from '@views/global/GlFooter.vue';
 import GgColorPicker from '@components/GgColorPicker.vue';
+import prism from 'prismjs';
+import 'prismjs/themes/prism-okaidia.min.css';
 
 // vars
 const state = reactive({
     blur: 8,
     color: 'rgba(55, 66, 250, .3)'
-})
-
+});
 </script>
 
 <style lang="less" scoped>
@@ -73,7 +78,9 @@ section {
         }
     }
 }
-// main(css card)
+aside {
+    z-index: 1;
+}
 main {
     width: calc(100% - @side-width);
     height: 100vh;
@@ -81,12 +88,12 @@ main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    z-index: -1;
     #code {
         width: 400px;
         height: 250px;
         border-radius: 15px;
         background-color: rgba(255, 255, 255, .2);
+        padding: 10px;
     }
 }
 // footer
