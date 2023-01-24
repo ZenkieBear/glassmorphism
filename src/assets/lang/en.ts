@@ -32,5 +32,15 @@ export default {
             title: 'CSS Code',
             copied: 'Copied!'
         }
+    },
+    about: {
+        vision: {
+            title: 'Vision',
+            content: 'Faster design and simpler use!'
+        },
+        background: {
+            title: 'Background',
+            content: 'I wanted a tool to help myself and others to generate <a href="https://webflow.com/blog/glassmorphism">glassmorphism</a> style codes. And it comes now.'
+        }
     }
 }
