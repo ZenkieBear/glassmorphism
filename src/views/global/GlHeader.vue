@@ -1,16 +1,13 @@
 <template>
     <!-- Global header -->
     <header>
-        <a href="/" tabindex="0">
+        <a href="/" tabindex="1">
             <img src="/logo.png" alt="Logo" id="logo">
         </a>
         <nav>
             <router-link to="/home"
                 class="gl-menu"
-                tabindex="1">{{$t('nav.start')}}</router-link>
-            <a href=""
-                class="gl-menu"
-                tabindex="2">{{$t('nav.download')}}</a>
+                tabindex="2">{{$t('nav.start')}}</router-link>
             <a href=""
                 class="gl-menu"
                 tabindex="3">{{$t('nav.about')}}</a>

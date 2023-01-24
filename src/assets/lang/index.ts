@@ -1,11 +1,11 @@
 import { createI18n } from "vue-i18n";
-import zh from './zh.ts';
-import en from './en.ts';
+import zh from './zh';
+import en from './en';
 
 // create i18n component
 const i18n = createI18n({
     globalInjection: true,
-    locale: 'en',
+    locale: localStorage.getItem('lang') || 'en',
     messages: {
         zh: zh,
         en: en

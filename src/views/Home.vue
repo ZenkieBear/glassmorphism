@@ -5,15 +5,15 @@
             <!-- side bar -->
             <aside class="side-bar">
                 <div class="toolbar">
-                    <div class="title">Try some changes</div>
+                    <div class="title">{{ $t('home.tools.title') }}</div>
                     <ul class="tools">
                         <li>
-                            <span class="label">Color</span>
+                            <span class="label">{{ $t('home.tools.color') }}</span>
                             <gg-color-picker v-model="state.color"
                                 tabindex="6"/>
                         </li>
                         <li>
-                            <span class="label">Blur</span>
+                            <span class="label">{{ $t('home.tools.blur') }}</span>
                             <gg-pop>
                                 <template #content>{{ state.blur }} px</template>
                                 <gg-slider v-model="state.blur"
@@ -23,7 +23,7 @@
                             </gg-pop>
                         </li>
                         <li>
-                            <span class="label">Saturation</span>
+                            <span class="label">{{ $t('home.tools.saturation') }}</span>
                             <gg-pop>
                                 <template #content>{{ state.saturation }} %</template>
                                 <gg-slider v-model="state.saturation"
@@ -33,7 +33,7 @@
                             </gg-pop>
                         </li>
                         <li>
-                            <span class="label">Radius</span>
+                            <span class="label">{{ $t('home.tools.radius') }}</span>
                             <gg-pop>
                                 <template #content>{{ state.radius }} px</template>
                                 <gg-slider v-model="state.radius"
@@ -58,7 +58,7 @@
                         @click="copy">
                         <span class="fa-regular fa-clipboard" ></span> {{ copyMsg }}
                     </button>
-                    <div class="title">CSS Code</div>
+                    <div class="title">{{ $t('home.code.title') }}</div>
                     <!-- 木有办法，prism会按照格式渲染 -->
 <pre><code class="language-css" id="code">.glass {
     background-color: {{ state.color }};<template v-if="state.blur || state.saturation < 100">
@@ -84,6 +84,7 @@ import GgColorPicker from '@components/GgColorPicker.vue';
 import GgPop from '@components/GgPop.vue';
 import 'prismjs/themes/prism-okaidia.min.css';
 import clipboard from 'clipboard';
+import i18n from '@assets/lang/index.ts';
 
 // vars
 const state = reactive({
@@ -94,11 +95,9 @@ const state = reactive({
 });
 const copyMsg = ref<string>(' ');
 const codeClip = new clipboard('#copier');
-
-// methods
 const copy = () => {
     codeClip.on('success', () => {
-        copyMsg.value = 'Copied!';
+        copyMsg.value = i18n.global.t('home.code.copied');
     });
     codeClip.on('error', () => {
         copyMsg.value = 'Something wen\'t wrong...';

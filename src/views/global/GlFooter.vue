@@ -2,14 +2,18 @@
     <footer>
         <nav>
             <span>
-                Star on 
+                {{ $t('footer.star.prefix') }}
                 <a href="" class="link">
                     <i class="fa-brands fa-github"></i>
                 </a>
+                {{ $t('footer.star.suffix') }}
             </span>
         </nav>
         <div class="copyright">
-            Copyright 2022 <a href="https://github.com/ZenkieBear" class="link">Zenkie Bear</a> .
+            {{ $t('footer.license.prefix') }}
+            <a href="https://github.com/ZenkieBear/glassmorphism/blob/main/LICENSE'" class="link">MIT</a>
+            {{ $t('footer.license.suffix') }} |
+            {{ $t('footer.copyPrefix', {year: 2022}) }} <a href="https://github.com/ZenkieBear" class="link">Zenkie Bear</a> .
         </div>
     </footer>
 </template>
