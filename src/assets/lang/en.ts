@@ -38,9 +38,24 @@ export default {
             title: 'Vision',
             content: 'Faster design and simpler use!'
         },
-        background: {
-            title: 'Background',
+        how: {
+            title: 'How was Glassmorphism Generator cames?',
             content: 'I wanted a tool to help myself and others to generate <a href="https://webflow.com/blog/glassmorphism">glassmorphism</a> style codes. And it comes now.'
+        },
+        thanks: {
+            title: 'Special Thanks',
+            jobs: {
+                translate: 'Translate'
+            },
+            tips: 'Tips: If your infomation changed, please contact Zenkie Bear. You can also push Pull Request. : )'
+        },
+        contact: {
+            title: 'Contact',
+            tips: 'If you have any questions or suggestions, you can contact me!😁',
+            contacts: {
+                email: 'Email',
+                wechat: 'WeChat'
+            }
         }
     }
 }

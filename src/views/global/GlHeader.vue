@@ -8,7 +8,7 @@
             <router-link to="/home"
                 class="gl-menu"
                 tabindex="2">{{$t('nav.start')}}</router-link>
-            <a href=""
+            <a href="/about"
                 class="gl-menu"
                 tabindex="3">{{$t('nav.about')}}</a>
             <!-- this might be an single component future -->
