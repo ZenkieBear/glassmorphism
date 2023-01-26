@@ -12,7 +12,8 @@
         <div class="copyright">
             {{ $t('footer.license.prefix') }}
             <a href="https://github.com/ZenkieBear/glassmorphism/blob/main/LICENSE'" class="link">MIT</a>
-            {{ $t('footer.license.suffix') }} |
+            {{ $t('footer.license.suffix') }}
+            |
             {{ $t('footer.copyPrefix', {year: 2022}) }} <a href="https://github.com/ZenkieBear" class="link">Zenkie Bear</a> .
         </div>
     </footer>
@@ -70,6 +71,11 @@ footer {
         display: flex;
         align-items: center;
         margin-top: 1rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    footer {
+        font-size: 3vw;
     }
 }
 </style>

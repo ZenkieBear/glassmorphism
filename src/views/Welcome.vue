@@ -7,7 +7,7 @@
                 <div class="title">
                     Glassmorphism Generator
                 </div>
-                <span class="slogan">
+                <span class="desc">
                     {{ $t('welcome.desc') }}
                 </span>
                 <div class="panel">
@@ -57,7 +57,7 @@ main {
             color: transparent;
             line-height: 10vw * 1;
         }
-        .slogan {
+        .desc {
             font-size: 1.2rem;
             color: @font-color;
         }

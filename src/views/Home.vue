@@ -154,7 +154,7 @@ main {
     justify-content: center;
     #code-box {
         width: 450px;
-        height: 250px;
+        min-height: 250px;
         border-radius: 15px;
         background-color: rgba(255, 255, 255, .2);
         padding: 10px;
@@ -207,5 +207,11 @@ footer {
 // Prism DIV
 .language-css {
     white-space: pre-wrap;
+}
+
+@media screen and (max-width: 786px) {
+    .side-bar {
+        padding: 20px;
+    }
 }
 </style>
