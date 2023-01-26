@@ -11,7 +11,7 @@
                     {{ $t('welcome.desc') }}
                 </span>
                 <div class="panel">
-                    <a href="/home">{{ $t("welcome.start") }}</a>
+                    <router-link to="/home">{{ $t("welcome.start") }}</router-link>
                 </div>
             </div>
         </main>

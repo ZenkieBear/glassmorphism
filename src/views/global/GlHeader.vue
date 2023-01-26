@@ -1,16 +1,16 @@
 <template>
     <!-- Global header -->
     <header>
-        <a href="/" tabindex="1">
+        <router-link to="/" tabindex="1">
             <img src="/logo.png" alt="Logo" id="logo">
-        </a>
+        </router-link>
         <nav>
             <router-link to="/home"
                 class="gl-menu"
                 tabindex="2">{{$t('nav.start')}}</router-link>
-            <a href="/about"
+            <router-link to="/about"
                 class="gl-menu"
-                tabindex="3">{{$t('nav.about')}}</a>
+                tabindex="3">{{$t('nav.about')}}</router-link>
             <!-- this might be an single component future -->
             <span class="gl-sub-menu"
                 tabindex="4">
