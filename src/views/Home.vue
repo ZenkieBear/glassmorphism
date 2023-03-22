@@ -4,16 +4,17 @@
         <section>
             <!-- side bar -->
             <aside class="side-bar">
-                <div class="toolbar">
-                    <div class="title">{{ $t('home.tools.title') }}</div>
+                <div class="title">{{ $t('home.tools.title') }}</div>
+                <div class="toolbar common">
+                    <div class="title">{{ $t('home.tools.common.title') }}</div>
                     <ul class="tools">
                         <li>
-                            <span class="label">{{ $t('home.tools.color') }}</span>
+                            <span class="label">{{ $t('home.tools.common.color') }}</span>
                             <gg-color-picker v-model="state.color"
                                 tabindex="6"/>
                         </li>
                         <li>
-                            <span class="label">{{ $t('home.tools.blur') }}</span>
+                            <span class="label">{{ $t('home.tools.common.blur') }}</span>
                             <gg-pop>
                                 <template #content>{{ state.blur }} px</template>
                                 <gg-slider v-model="state.blur"
@@ -23,7 +24,7 @@
                             </gg-pop>
                         </li>
                         <li>
-                            <span class="label">{{ $t('home.tools.saturation') }}</span>
+                            <span class="label">{{ $t('home.tools.common.saturation') }}</span>
                             <gg-pop>
                                 <template #content>{{ state.saturation }} %</template>
                                 <gg-slider v-model="state.saturation"
@@ -33,13 +34,25 @@
                             </gg-pop>
                         </li>
                         <li>
-                            <span class="label">{{ $t('home.tools.radius') }}</span>
+                            <span class="label">{{ $t('home.tools.common.radius') }}</span>
                             <gg-pop>
                                 <template #content>{{ state.radius }} px</template>
                                 <gg-slider v-model="state.radius"
                                     tabindex="8"
                                     :min="0"
                                     :max="35"/>
+                            </gg-pop>
+                        </li>
+                    </ul>
+                </div>
+                <div class="toolbar other">
+                    <div class="title">{{ $t('home.tools.other.title') }}</div>
+                    <ul class="tools">
+                        <li>
+                            <span class="label">{{ $t('home.tools.other.bg.label') }}</span>
+                            <gg-pop>
+                                <template #content>{{ $t('home.tools.other.bg.pop') }}</template>
+                                <gg-upload @change="changeBackground"/>
                             </gg-pop>
                         </li>
                     </ul>
@@ -76,12 +89,13 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import GgSlider from '@components/GGSlider.vue';
 import GlHeader from '@views/global/GlHeader.vue';
 import GlFooter from '@views/global/GlFooter.vue';
 import GgColorPicker from '@components/GgColorPicker.vue';
 import GgPop from '@components/GgPop.vue';
+import GgUpload from '@/components/GgUpload.vue';
 import 'prismjs/themes/prism-okaidia.min.css';
 import clipboard from 'clipboard';
 import i18n from '@assets/lang/index.ts';
@@ -93,7 +107,7 @@ const state = reactive({
     saturation: 100,
     radius: 10
 });
-const copyMsg = ref<string>(' ');
+const copyMsg = ref<string>('');
 const codeClip = new clipboard('#copier');
 const copy = () => {
     codeClip.on('success', () => {
@@ -105,7 +119,15 @@ const copy = () => {
     setTimeout(() => {
         copyMsg.value = '';
     }, 2000);
-}
+};
+const changeBackground = (path: string) => {
+    let html = document.querySelector('html');
+    if (path) {
+        html.style.backgroundImage = `url(${path})`;
+    } else {
+        html.style.backgroundImage = 'url(https://picsum.photos/1920/1080)';
+    }
+};
 </script>
 
 <style lang="less" scoped>
@@ -122,19 +144,48 @@ section {
     height: 100vh;
     padding-top: 100px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(8px);
     background: rgba(255, 255, 255, .6);
     z-index: 1;
-    .toolbar {
+    > .title {
         color: @font-color;
-        > .title {
-            font-size: 1.8rem;
+        font-size: 1.8rem;
+        width: 80%;
+    }
+    .toolbar {
+        width: 80%;
+        color: @font-color;
+        & + .toolbar {
+            margin-top: 20px;
+        }
+        & > .title {
+            position: relative;
+            font-size: .8rem;
+            &::after {
+                position: absolute;
+                left: -10px;
+                top: calc((100% - 80%) / 2);
+                width: 3px;
+                height: 80%;
+                border-radius: 2px;
+                content: '';
+                background-color: @hover-color;
+                transition: all .3s ease-in-out;
+            }
+        }
+        &:focus-within {
+            & > .title::after {
+                background-color: @primary-color;
+            }
         }
         .tools {
             > li {
-                margin-top: 18px;
+                & + li {
+                    margin-top: 18px;
+                }
                 .label {
                     text-align: right;
                     margin-right: 10px;

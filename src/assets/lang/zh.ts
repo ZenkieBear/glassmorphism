@@ -4,6 +4,9 @@ export default {
         desc: '这是一个"玻璃拟态"CSS生成器，用于帮助设计师、前端开发者来快速设计组件。',
         start: '开始'
     },
+    components: {
+        upload: '选择'
+    },
     nav: {
         start : '开始',
         download: '下载',
@@ -22,11 +25,21 @@ export default {
     },
     home: {
         tools: {
-            title: '试试修改参数',
-            color: '颜色',
-            blur: '模糊大小',
-            saturation: '饱和度',
-            radius: '圆角'
+            title: '修改参数试试',
+            common: {
+                title: '一般',
+                color: '背景颜色',
+                blur: '模糊大小',
+                saturation: '饱和度',
+                radius: '圆角'
+            },
+            other: {
+                title: '其他',
+                bg: {
+                    label: '背景图片',
+                    pop: '使用本地图片替代随机背景图'
+                }
+            }
         },
         code: {
             title: 'CSS 代码',

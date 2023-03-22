@@ -1,8 +1,8 @@
 <template>
     <!-- Global header -->
     <header>
-        <router-link to="/" tabindex="1">
-            <img src="/logo.png" alt="Logo" id="logo">
+        <router-link to="/" tabindex="1" id="logo">
+            <img src="/logo.png" alt="Logo">
         </router-link>
         <nav>
             <router-link to="/home"
@@ -63,9 +63,17 @@ header {
     z-index: 2;
     transition: @transition-eased2s;
     #logo {
-        width: 60px;
-        height: 60px;
-        border-radius: 18px;
+        &:focus {
+            outline: none;
+            img {
+                outline: 2px solid #5352ed;
+            }
+        }
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+        }
     }
     nav {
         padding-right: 10px;

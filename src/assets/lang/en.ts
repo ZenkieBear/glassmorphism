@@ -4,6 +4,9 @@ export default {
         desc: 'It\'s a glassmorphism CSS generator, help designers/frontend engineers to design their components.',
         start: 'Get Start'
     },
+    components: {
+        upload: 'Choose'
+    },
     nav: {
         start : 'Start',
         download: 'Download',
@@ -23,10 +26,20 @@ export default {
     home: {
         tools: {
             title: 'Try some changes',
-            color: 'Color',
-            blur: 'Blur',
-            saturation: 'Blur',
-            radius: 'Radius'
+            common: {
+                title: 'Common',
+                color: 'Color',
+                blur: 'Blur',
+                saturation: 'Saturation',
+                radius: 'Radius'
+            },
+            other: {
+                title: 'Other',
+                bg: {
+                    label: 'Background',
+                    pop: 'Choose a local picture to replace the random backgorund.'
+                }
+            }
         },
         code: {
             title: 'CSS Code',
