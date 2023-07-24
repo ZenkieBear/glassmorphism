@@ -1,47 +1,46 @@
-
-
 <div align="center">
   <a href="https://glassmorphism.art/">
     <img src="https://glassmorphism.art/logo.png" style="width: 100px; border-radius: 5px" />
   </a>
 </div>
 
-
-
 # Glassmorphism Generator
 
-It's a glass-morphism `CSS` generator, help designer/front-end developer to design their components faster.
+This is a glass-morphism CSS generator that makes it easier for designers and front-end developers to create their components.
 
+## Suggested Tools 
 
+* We recommend using [VSCode](https://code.visualstudio.com/) as your code editor.
+* Suggested extensions for VSCode:
+  * [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and turn off Vetur) 
+  * [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Recommended IDE Setup
+## Getting Started
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-
-
-## Project Setup
+To set up the project on your computer, first, install the necessary tools with this command:
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### To Run the Project for Development
+
+If you want to make changes and see them in real-time, use this command:
+
+To get the project ready for others to use, you need to compile and minimize it with this command:
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### To Prepare the Project for Public Use
 
 ```sh
 npm run build
 ```
 
-Tips: There'll be a directory named `dist` generated, package it, and put it into your *Web Server*, such as [Nginx](http://nginx.org/), [Apache](https://www.apache.org/)...
-
-
+After you run this, you'll see a new folder called dist. You need to package this and put it into your web server, like [Nginx](http://nginx.org/), [Apache](https://www.apache.org/)...
 
 ## License
 
-`Glassmorphism Generator` is an opensource software licensed by [MIT](https://github.com/ZenkieBear/glassmorphism/blob/main/LICENSE)
+The Glassmorphism Generator is free to use because it's licensed under [MIT](https://github.com/ZenkieBear/glassmorphism/blob/main/LICENSE)
