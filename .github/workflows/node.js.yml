@@ -2,7 +2,9 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
 name: CI GitHub Pages
-
+permissions:
+  pages: write
+  id-token: write
 on:
   push:
     branches: [ "main" ]
@@ -25,34 +27,29 @@ jobs:
       - run: npm install
       - run: npm run lint
     
-  build:
+  build-and-deploy:
     name: Building
     needs: lint
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
         node-version: [18.x]
     steps:
-    - name: Checkout 🛎️
+    - name: 🛎️ Checkout
     - uses: actions/checkout@v4
-    - name: Build with Node.js ${{ matrix.node-version }} 🔨
+    - name: 🚧 Build with Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
     - run: npm run build
-  deploy:
-    name: Deploying 🚀
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploying 🚀
-      - uses: actions/deploy-pages@v1
+    - name: 🚀 Deploying
+    - uses: actions/configure-pages@v3
+    - uses: actions/upload-pages-artifact@v2
+    - uses: actions/deploy-pages@v1
+    - run: echo '✅ success doployed!
       
