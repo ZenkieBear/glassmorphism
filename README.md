@@ -6,7 +6,7 @@
 
 # Glassmorphism Generator
 
-![ci](https://github.com/ZenkieBear/glassmorphism/actions/workflows/node.js.yml/badge.svg)
+[![ci](https://github.com/ZenkieBear/glassmorphism/actions/workflows/node.js.yml/badge.svg)](https://github.com/ZenkieBear/glassmorphism/actions/workflows/node.js.yml)
 
 中文文档[在这里](README-zh.md)
 
