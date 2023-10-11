@@ -49,6 +49,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm install
+      - run: pwd
+      - run: ls glassmorphism
       - run: npm run build
       - name: 🚀 Deploying
         uses: actions/configure-pages@v3
