@@ -39,7 +39,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [18.18.0]
     steps:
       - name: 🛎️ Checkout
         uses: actions/checkout@v4
