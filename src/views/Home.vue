@@ -90,7 +90,7 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue';
-import GgSlider from '@components/GGSlider.vue';
+import GgSlider from '@components/GgSlider.vue';
 import GlHeader from '@views/global/GlHeader.vue';
 import GlFooter from '@views/global/GlFooter.vue';
 import GgColorPicker from '@components/GgColorPicker.vue';
