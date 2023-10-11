@@ -11,6 +11,7 @@ on:
 
 jobs:
   lint:
+    name: Linting 🔍
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -18,13 +19,15 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
-      - name: Linting 🔍
+      - name: Linting 
         uses: actions/setup-node@v3
         with: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run lint
     
-  build-and-deploy:
+  build:
+    name: Building
+    needs: lint
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -39,6 +42,17 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm run build
-    - name: Deploying 🚀
-    - uses: actions/deploy-pages@v1
+  deploy:
+    name: Deploying 🚀
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploying 🚀
+      - uses: actions/deploy-pages@v1
       
