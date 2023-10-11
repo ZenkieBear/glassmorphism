@@ -2,15 +2,17 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
 name: CI GitHub Pages
-permissions:
-  pages: write
-  id-token: write
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+permissions:
+  pages: write
+  id-token: write
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 jobs:
   lint:
     name: Linting 🔍
@@ -50,6 +52,8 @@ jobs:
     - name: 🚀 Deploying
     - uses: actions/configure-pages@v3
     - uses: actions/upload-pages-artifact@v2
+      with:
+        path: './dist'
     - uses: actions/deploy-pages@v1
     - run: echo '✅ success doployed!
       
