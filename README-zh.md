@@ -6,7 +6,7 @@
 
 # Glassmorphism Generator
 
-![ci](https://github.com/ZenkieBear/glassmorphism/actions/workflows/node.js.yml/badge.svg)
+[![ci](https://github.com/ZenkieBear/glassmorphism/actions/workflows/node.js.yml/badge.svg)](https://github.com/ZenkieBear/glassmorphism/actions/workflows/node.js.yml)
 
 这是一个 **玻璃拟态** `CSS` 生成器，用于帮助设计师、前端开发者来快速设计组件。
 
