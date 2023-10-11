@@ -40,20 +40,20 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-    - name: 🛎️ Checkout
-    - uses: actions/checkout@v4
-    - name: 🚧 Build with Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install
-    - run: npm run build
-    - name: 🚀 Deploying
-    - uses: actions/configure-pages@v3
-    - uses: actions/upload-pages-artifact@v2
-      with:
-        path: './dist'
-    - uses: actions/deploy-pages@v1
-    - run: echo '✅ success doployed!
+      - name: 🛎️ Checkout
+      - uses: actions/checkout@v4
+      - name: 🚧 Build with Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm install
+      - run: npm run build
+      - name: 🚀 Deploying
+      - uses: actions/configure-pages@v3
+      - uses: actions/upload-pages-artifact@v2
+        with:
+          path: './dist'
+      - uses: actions/deploy-pages@v1
+      - run: echo '✅ success doployed!
       
