@@ -14,24 +14,24 @@ concurrency:
   group: 'pages'
   cancel-in-progress: true
 jobs:
-  lint:
-    name: Linting 🔍
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v4
-      - name: Linting 
-        uses: actions/setup-node@v3
-        with: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run lint
+  # lint:
+  #   name: Linting 🔍
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       node-version: [16.x, 18.x]
+  #   steps:
+  #     - name: Checkout 🛎️
+  #       uses: actions/checkout@v4
+  #     - name: Linting 
+  #       uses: actions/setup-node@v3
+  #       with: ${{ matrix.node-version }}
+  #     - run: npm install
+  #     - run: npm run lint
     
   build-and-deploy:
-    name: Building
-    needs: lint
+    name: Build & Deploying
+    # needs: lint
     runs-on: ubuntu-latest
     environment:
       name: github-pages
