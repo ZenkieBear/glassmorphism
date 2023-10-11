@@ -8,6 +8,7 @@ on:
   pull_request:
     branches: [ "main" ]
 permissions:
+  contents: read
   pages: write
   id-token: write
 concurrency:
@@ -50,10 +51,10 @@ jobs:
       - run: npm install
       - run: npm run build
       - name: 🚀 Deploying
-      - uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v3
       - uses: actions/upload-pages-artifact@v2
         with:
           path: './dist'
       - uses: actions/deploy-pages@v1
-      - run: echo '✅ success doployed!
+      - run: echo '✅ Success deployed!
       
