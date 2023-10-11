@@ -8,6 +8,8 @@
 
 ![ci](https://github.com/ZenkieBear/glassmorphism/actions/workflows/node.js.yml/badge.svg)
 
+中文文档[在这里](README-zh.md)
+
 This is a glass-morphism CSS generator that makes it easier for designers and front-end developers to create their components.
 
 ## Suggested Tools 
