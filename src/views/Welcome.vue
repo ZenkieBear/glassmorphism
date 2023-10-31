@@ -53,13 +53,16 @@ main {
             font-family: "Kanit";
             font-weight: bold;
             font-size: 10vw;
-            -webkit-text-stroke: 2px @primary-color;
+            // -webkit-text-stroke: 2px @primary-color;
             color: transparent;
             line-height: 10vw * 1;
+            background: linear-gradient(45deg, @primary-color, lighten(@primary-color, 10%));
+            background-clip: text;
+            -webkit-background-clip: text;
         }
         .desc {
             font-size: 1.2rem;
-            color: @font-color;
+            color: darken(lighten(@primary-color, 10%), 10%);
         }
         .panel {
             margin-top: 40px;
