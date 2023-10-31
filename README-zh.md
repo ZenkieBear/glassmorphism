@@ -1,14 +1,12 @@
-
-
 <div align="center">
-  <a href="https://glassmorphism.art/">
-    <img src="https://glassmorphism.art/logo.png" style="width: 100px; border-radius: 5px" />
+  <a href="https://glass.zenkie.cn/">
+    <img src="https://raw.githubusercontent.com/ZenkieBear/glassmorphism/main/public/logo.png" style="width: 100px; border-radius: 5px" />
   </a>
 </div>
 
-
-
 # Glassmorphism Generator
+
+[![ci](https://github.com/ZenkieBear/glassmorphism/actions/workflows/node.js.yml/badge.svg)](https://github.com/ZenkieBear/glassmorphism/actions/workflows/node.js.yml)
 
 这是一个 **玻璃拟态** `CSS` 生成器，用于帮助设计师、前端开发者来快速设计组件。
 

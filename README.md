@@ -1,10 +1,14 @@
 <div align="center">
-  <a href="https://glassmorphism.art/">
-    <img src="https://glassmorphism.art/logo.png" style="width: 100px; border-radius: 5px" />
+  <a href="https://glass.zenkie.cn/">
+    <img src="https://raw.githubusercontent.com/ZenkieBear/glassmorphism/main/public/logo.png" style="width: 100px; border-radius: 5px" />
   </a>
 </div>
 
 # Glassmorphism Generator
+
+[![ci](https://github.com/ZenkieBear/glassmorphism/actions/workflows/node.js.yml/badge.svg)](https://github.com/ZenkieBear/glassmorphism/actions/workflows/node.js.yml)
+
+中文文档[在这里](README-zh.md)
 
 This is a glass-morphism CSS generator that makes it easier for designers and front-end developers to create their components.
 
