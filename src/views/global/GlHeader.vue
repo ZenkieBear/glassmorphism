@@ -1,6 +1,6 @@
 <template>
     <!-- Global header -->
-    <header>
+    <header ref="main">
         <router-link to="/" tabindex="1" id="logo">
             <img src="/logo.png" alt="Logo">
         </router-link>
@@ -12,8 +12,9 @@
                 class="gl-menu"
                 tabindex="3">{{$t('nav.about')}}</router-link>
             <!-- this might be an single component future -->
-            <span class="gl-sub-menu"
-                tabindex="4">
+            <!-- <span class="gl-sub-menu"
+                tabindex="4"
+                @click="toggleLangMenu()">
                 <i class="fa-solid fa-globe" />
                 <ul>
                     <li v-for="lang in langs"
@@ -21,7 +22,18 @@
                         {{ lang.name }}
                     </li>
                 </ul>
-            </span>
+            </span> -->
+            <gg-sub-menu>
+                <template v-slot:content>
+                    <i class="fa-solid fa-language" />
+                </template>
+                <template v-slot:items>
+                    <li v-for="lang in langs"
+                        @click="toggleLang(lang.value)">
+                        {{ lang.name }}
+                    </li>
+                </template>
+            </gg-sub-menu>
             <a href="https://github.com/ZenkieBear/glassmorphism"
                 class="gl-menu"
                 tabindex="5">
@@ -33,7 +45,8 @@
 
 
 <script lang="ts" setup>
-import i18n, { langs } from '@assets/lang/index.ts';
+import GgSubMenu from '@/components/GgSubMenu.vue'
+import i18n, { langs } from '@/assets/lang/index';
 
 const toggleLang = (lang: string) => {
     i18n.global.locale = lang;
@@ -62,6 +75,7 @@ header {
     left: 0;
     z-index: 2;
     transition: @transition-eased2s;
+
     #logo {
         &:focus {
             outline: none;
@@ -116,7 +130,7 @@ header {
                 }
             }
             &:hover ul {
-                display: block;
+                // display: block;
             }
         }
     }
