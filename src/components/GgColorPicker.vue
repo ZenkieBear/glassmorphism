@@ -46,8 +46,8 @@
 
 <script lang="ts" setup>
 import { ref, watch, reactive, onMounted } from 'vue';
-import { hsv2rgb, str2rgb, str2rgba, rgb2hsv } from '@assets/js/color.ts';
-import GgInput from '@components/GgInput.vue';
+import { hsv2rgb, str2rgb, str2rgba, rgb2hsv } from '@/assets/js/color.ts';
+import GgInput from '@/components/GgInput.vue';
 
 // vars
 const props = defineProps({

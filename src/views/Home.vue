@@ -90,15 +90,15 @@
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue';
-import GgSlider from '@components/GgSlider.vue';
-import GlHeader from '@views/global/GlHeader.vue';
-import GlFooter from '@views/global/GlFooter.vue';
-import GgColorPicker from '@components/GgColorPicker.vue';
-import GgPop from '@components/GgPop.vue';
+import GgSlider from '@/components/GgSlider.vue';
+import GlHeader from '@/views/global/GlHeader.vue';
+import GlFooter from '@/views/global/GlFooter.vue';
+import GgColorPicker from '@/components/GgColorPicker.vue';
+import GgPop from '@/components/GgPop.vue';
 import GgUpload from '@/components/GgUpload.vue';
 import 'prismjs/themes/prism-okaidia.min.css';
 import clipboard from 'clipboard';
-import i18n from '@assets/lang/index.ts';
+import i18n from '@/assets/lang/index.ts';
 
 // vars
 const state = reactive({

@@ -21,18 +21,22 @@
 </template>
 
 <script lang="ts" setup>
-import GlHeader from '@views/global/GlHeader.vue';
-import GlFooter from '@views/global/GlFooter.vue';
+import GlHeader from '@/views/global/GlHeader.vue';
+import GlFooter from '@/views/global/GlFooter.vue';
 import { onMounted } from 'vue';
-import i18n from '@assets/lang/index';
+import i18n, { langs } from '@/assets/lang/index';
+import gsap from 'gsap';
 
 // get lang from localStorages
 onMounted(() => {
     const lang = localStorage.getItem('lang');
-    if (lang) {
-        i18n.global.locale = lang;
+    if (lang && lang) {
+        i18n.global.locale = lang as ('zh' | 'en');
     } 
     
+    gsap.from('#banner .title', {
+        x: -100
+    })
 });
 </script>
 

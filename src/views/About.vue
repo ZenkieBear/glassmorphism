@@ -41,8 +41,8 @@
 </template>
 
 <script lang="ts" setup>
-import GlHeader from '@views/global/GlHeader.vue';
-import GlFooter from '@views/global/GlFooter.vue';
+import GlHeader from '@/views/global/GlHeader.vue';
+import GlFooter from '@/views/global/GlFooter.vue';
 import { reactive } from 'vue';
 
 type Contributor = {

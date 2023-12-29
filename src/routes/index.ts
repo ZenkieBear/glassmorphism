@@ -1,7 +1,7 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
-import Welcome from '@views/Welcome.vue';
-import Home from '@views/Home.vue';
-import About from '@views/About.vue';
+import { createRouter, createWebHistory } from 'vue-router';
+import Welcome from '@/views/Welcome.vue';
+import Home from '@/views/Home.vue';
+import About from '@/views/About.vue';
 
 const router = createRouter({
     history: createWebHistory(),
