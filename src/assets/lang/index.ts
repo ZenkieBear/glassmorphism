@@ -12,7 +12,7 @@ const i18n = createI18n({
     }
 });
 // define all supported languages
-const langs = [
+export const langs = [
     {
         name: '简体中文',
         value: 'zh'
@@ -24,4 +24,3 @@ const langs = [
 ]
 
 export default i18n;
-export { langs };
