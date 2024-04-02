@@ -9,38 +9,60 @@
                     <div class="title">{{ $t('home.tools.common.title') }}</div>
                     <ul class="tools">
                         <li>
-                            <span class="label">{{ $t('home.tools.common.color') }}</span>
-                            <gg-color-picker v-model="state.color"
-                                tabindex="6"/>
+                            <span class="label">{{
+                                $t('home.tools.common.color')
+                            }}</span>
+                            <gg-color-picker
+                                v-model="state.color"
+                                tabindex="6"
+                            />
                         </li>
                         <li>
-                            <span class="label">{{ $t('home.tools.common.blur') }}</span>
+                            <span class="label">{{
+                                $t('home.tools.common.blur')
+                            }}</span>
                             <gg-pop>
-                                <template #content>{{ state.blur }} px</template>
-                                <gg-slider v-model="state.blur"
+                                <template #content
+                                    >{{ state.blur }} px</template
+                                >
+                                <gg-slider
+                                    v-model="state.blur"
                                     tabindex="7"
                                     :min="0"
-                                    :max="80"/>
+                                    :max="80"
+                                />
                             </gg-pop>
                         </li>
                         <li>
-                            <span class="label">{{ $t('home.tools.common.saturation') }}</span>
+                            <span class="label">{{
+                                $t('home.tools.common.saturation')
+                            }}</span>
                             <gg-pop>
-                                <template #content>{{ state.saturation }} %</template>
-                                <gg-slider v-model="state.saturation"
+                                <template #content
+                                    >{{ state.saturation }} %</template
+                                >
+                                <gg-slider
+                                    v-model="state.saturation"
                                     tabindex="8"
                                     :min="0"
-                                    :max="100"/>
+                                    :max="100"
+                                />
                             </gg-pop>
                         </li>
                         <li>
-                            <span class="label">{{ $t('home.tools.common.radius') }}</span>
+                            <span class="label">{{
+                                $t('home.tools.common.radius')
+                            }}</span>
                             <gg-pop>
-                                <template #content>{{ state.radius }} px</template>
-                                <gg-slider v-model="state.radius"
+                                <template #content
+                                    >{{ state.radius }} px</template
+                                >
+                                <gg-slider
+                                    v-model="state.radius"
                                     tabindex="8"
                                     :min="0"
-                                    :max="35"/>
+                                    :max="35"
+                                />
                             </gg-pop>
                         </li>
                     </ul>
@@ -49,31 +71,40 @@
                     <div class="title">{{ $t('home.tools.other.title') }}</div>
                     <ul class="tools">
                         <li>
-                            <span class="label">{{ $t('home.tools.other.bg.label') }}</span>
+                            <span class="label">{{
+                                $t('home.tools.other.bg.label')
+                            }}</span>
                             <gg-pop>
-                                <template #content>{{ $t('home.tools.other.bg.pop') }}</template>
-                                <gg-upload @change="changeBackground"/>
+                                <template #content>{{
+                                    $t('home.tools.other.bg.pop')
+                                }}</template>
+                                <gg-upload @change="changeBackground" />
                             </gg-pop>
                         </li>
                     </ul>
                 </div>
             </aside>
             <main>
-                <div id="code-box"
+                <div
+                    id="code-box"
                     :style="{
                         backdropFilter: `blur(${state.blur}px) saturate(${state.saturation / 100})`,
                         background: state.color,
-                        borderRadius: state.radius + 'px'
-                    }">
-                    <button id="copier"
+                        borderRadius: state.radius + 'px',
+                    }"
+                >
+                    <button
+                        id="copier"
                         class="copier"
                         data-clipboard-target="#code"
-                        @click="copy">
-                        <span class="fa-regular fa-clipboard" ></span> {{ copyMsg }}
+                        @click="copy"
+                    >
+                        <span class="fa-regular fa-clipboard"></span>
+                        {{ copyMsg }}
                     </button>
                     <div class="title">{{ $t('home.code.title') }}</div>
                     <!-- 木有办法，prism会按照格式渲染 -->
-<pre><code class="language-css" id="code">.glass {
+                    <pre><code id="code" class="language-css">.glass {
     background-color: {{ state.color }};<template v-if="state.blur || state.saturation < 100">
     backdrop-filter:<template
         v-if="state.blur"> blur({{state.blur}}px)</template><template
@@ -89,7 +120,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, reactive, ref } from 'vue';
+import { reactive, ref } from 'vue';
 import GgSlider from '@/components/GgSlider.vue';
 import GlHeader from '@/views/global/GlHeader.vue';
 import GlFooter from '@/views/global/GlFooter.vue';
@@ -105,7 +136,7 @@ const state = reactive({
     blur: 8,
     color: 'rgba(55, 66, 250, .3)',
     saturation: 100,
-    radius: 10
+    radius: 10,
 });
 const copyMsg = ref<string>('');
 const codeClip = new clipboard('#copier');
@@ -114,7 +145,7 @@ const copy = () => {
         copyMsg.value = i18n.global.t('home.code.copied');
     });
     codeClip.on('error', () => {
-        copyMsg.value = 'Something wen\'t wrong...';
+        copyMsg.value = "Something wen't wrong...";
     });
     setTimeout(() => {
         copyMsg.value = '';
@@ -148,7 +179,7 @@ section {
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(8px);
-    background: rgba(255, 255, 255, .6);
+    background: rgba(255, 255, 255, 0.6);
     z-index: 1;
     > .title {
         color: @font-color;
@@ -163,7 +194,7 @@ section {
         }
         & > .title {
             position: relative;
-            font-size: .8rem;
+            font-size: 0.8rem;
             &::after {
                 position: absolute;
                 left: -10px;
@@ -173,7 +204,7 @@ section {
                 border-radius: 2px;
                 content: '';
                 background-color: @hover-color;
-                transition: all .3s ease-in-out;
+                transition: all 0.3s ease-in-out;
             }
         }
         &:focus-within {
@@ -207,7 +238,7 @@ main {
         width: 450px;
         min-height: 250px;
         border-radius: 15px;
-        background-color: rgba(255, 255, 255, .2);
+        background-color: rgba(255, 255, 255, 0.2);
         padding: 10px;
         > .title {
             color: white;
@@ -252,7 +283,7 @@ main {
 }
 // footer
 footer {
-    box-shadow: 0 -10px 10px 0px rgba(0, 0, 0, .1);
+    box-shadow: 0 -10px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 // Prism DIV

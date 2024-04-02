@@ -1,44 +1,67 @@
 <template>
-    <div class="previewer"
-        :style="{backgroundColor: props.modelValue}"
+    <div
+        class="previewer"
+        :style="{ backgroundColor: props.modelValue }"
         tabindex="0"
-        @click="showPicker">
-        <div class="picker"
-            ref="picker"
-            v-show="pickerVisible">
+        @click="showPicker"
+    >
+        <div v-show="pickerVisible" ref="picker" class="picker">
             <!-- hue -->
-            <div ref="hueBar"
-                class="hue-bar"
-                @mousedown="handleHuePick">
+            <div ref="hueBar" class="hue-bar" @mousedown="handleHuePick">
                 <!-- hue slider -->
-                <div ref="huePicker"
+                <div
+                    ref="huePicker"
                     class="hue-picker"
-                    :style="{top: (hueHeight * color.hue / 360 > hueHeight - 6 ? hueHeight * color.hue / 360 - 6 : hueHeight * color.hue / 360) + 'px'}"></div>
+                    :style="{
+                        top:
+                            ((hueHeight * color.hue) / 360 > hueHeight - 6
+                                ? (hueHeight * color.hue) / 360 - 6
+                                : (hueHeight * color.hue) / 360) + 'px',
+                    }"
+                />
             </div>
             <!-- color panel -->
-            <div ref="svBar"
+            <div
+                ref="svBar"
                 class="sv-bar"
-                :style="{backgroundColor: colorBg}"
-                @mousedown="handleSVPick">
+                :style="{ backgroundColor: colorBg }"
+                @mousedown="handleSVPick"
+            >
                 <!-- its border color should be the inverse of picked color -->
-                <div ref="svPicker"
+                <div
+                    ref="svPicker"
                     class="sv-picker"
-                    :style="{top: ((100 - color.value) / 100 * panelHeight - 6) + 'px',
-                    left: (color.saturation / 100 * panelWidth - 6) + 'px'}"></div>
+                    :style="{
+                        top:
+                            ((100 - color.value) / 100) * panelHeight -
+                            6 +
+                            'px',
+                        left: (color.saturation / 100) * panelWidth - 6 + 'px',
+                    }"
+                />
             </div>
             <div ref="alphaBar" class="alpha-bar">
-                <div class="alpha-cover" 
-                    :style="{background: `linear-gradient(to right, transparent, rgb(${color.red}, ${color.green}, ${color.blue}))`}"
-                    @mousedown="handleAlphaPick"></div>
+                <div
+                    class="alpha-cover"
+                    :style="{
+                        background: `linear-gradient(to right, transparent, rgb(${color.red}, ${color.green}, ${color.blue}))`,
+                    }"
+                    @mousedown="handleAlphaPick"
+                />
                 <!-- Responsive style -->
-                <div ref="alphaPicker"
+                <div
+                    ref="alphaPicker"
                     class="alpha-picker"
-                    :style="{left: (color.alpha * 340 > 340 - 6 ? 340 - 6 : color.alpha * 340) + 'px'}"></div>
+                    :style="{
+                        left:
+                            (color.alpha * 340 > 340 - 6
+                                ? 340 - 6
+                                : color.alpha * 340) + 'px',
+                    }"
+                />
             </div>
             Value:
-            <gg-input ref="editor"
-                v-model="innerValue"
-                @change="handleValue"/>
+            <gg-input ref="editor" v-model="innerValue" @change="handleValue" />
             <span class="warning">{{ warning }}</span>
         </div>
     </div>
@@ -46,14 +69,15 @@
 
 <script lang="ts" setup>
 import { ref, watch, reactive, onMounted } from 'vue';
-import { hsv2rgb, str2rgb, str2rgba, rgb2hsv } from '@/assets/js/color.ts';
+import { hsv2rgb, str2rgb, str2rgba, rgb2hsv } from '@/assets/js/color';
 import GgInput from '@/components/GgInput.vue';
 
 // vars
 const props = defineProps({
     modelValue: {
-        type: String
-    }
+        type: String,
+        default: '',
+    },
 });
 const innerValue = ref(props.modelValue);
 const picker = ref();
@@ -68,12 +92,13 @@ const color = reactive({
     alpha: 1,
     red: 0,
     green: 0,
-    blue: 0
+    blue: 0,
 });
 const colorBg = ref('#f00');
 const alphaBar = ref();
 const alphaPicker = ref();
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
+// eslint-disable-next-line no-undef
 const removers = ref<Map<EventListener, EventListener>>(new Map());
 const pickerVisible = ref<boolean>(false);
 const editor = ref();
@@ -84,10 +109,11 @@ const hueHeight = 200;
 const warning = ref('');
 
 // methods
+// eslint-disable-next-line no-undef
 const getRemover = (el: EventListener): EventListener => {
     let result = removers.value.get(el);
     if (!result) {
-        result = (e: Event) => {
+        result = () => {
             document.removeEventListener('selectstart', prevent);
             document.removeEventListener('mousemove', el);
         };
@@ -101,9 +127,9 @@ const setHue = (e: Event) => {
         // rectangle
         const rect = hueBar.value.getBoundingClientRect();
         let y = e.clientY - rect.top;
-        y = y > hueHeight ? hueHeight : (y < 0 ? 0 : y);
+        y = y > hueHeight ? hueHeight : y < 0 ? 0 : y;
         // count hue
-        color.hue = Math.round(y / hueHeight * 360 * 100) / 100 | 0;
+        color.hue = (Math.round((y / hueHeight) * 360 * 100) / 100) | 0;
         // change panel background
         let rgb = hsv2rgb(color.hue, 100, 100);
         colorBg.value = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
@@ -129,11 +155,11 @@ const setSV = (e: Event) => {
         const rect = svBar.value.getBoundingClientRect();
         // count x & y
         let x = e.clientX - rect.left;
-        x = x > panelWidth ? panelWidth : (x < 0 ? 0 : x);
+        x = x > panelWidth ? panelWidth : x < 0 ? 0 : x;
         let y = e.clientY - rect.top;
-        y = y > panelHeight ? panelHeight : (y < 0 ? 0 : y);
+        y = y > panelHeight ? panelHeight : y < 0 ? 0 : y;
         // count saturation & value
-        color.saturation = Math.round(x / panelWidth * 100);
+        color.saturation = Math.round((x / panelWidth) * 100);
         color.value = Math.round((1 - y / panelHeight) * 100);
         generateColor();
     }
@@ -153,9 +179,9 @@ const setAlpha = (e: Event) => {
         // rectangle
         let rect = alphaBar.value.getBoundingClientRect();
         let x = e.clientX - rect.left;
-        x = x > width ? width : (x < 0 ? 0 : x);
+        x = x > width ? width : x < 0 ? 0 : x;
         // synchronize color
-        color.alpha = Math.round(x / width * 100) / 100.0;
+        color.alpha = Math.round((x / width) * 100) / 100.0;
         // generator color
         generateColor();
     }
@@ -186,7 +212,7 @@ const generateColor = () => {
 const handleValue = (value: string) => {
     value = value.trim();
     // debugger
-    if(value.startsWith('rgba')) {
+    if (value.startsWith('rgba')) {
         // rgb to hsv
         let rgba = str2rgba(value);
         let hsv = rgb2hsv(rgba.r, rgba.g, rgba.b);
@@ -210,7 +236,7 @@ const handleValue = (value: string) => {
         // alpha to 1
         color.alpha = 1;
         warning.value = '';
-    } else  {
+    } else {
         warning.value = 'Invalid color...';
     }
 };
@@ -221,9 +247,8 @@ const closeListener = (e: MouseEvent) => {
 };
 const showPicker = () => {
     pickerVisible.value = true;
-    document.addEventListener('mousedown', closeListener)
-}
-
+    document.addEventListener('mousedown', closeListener);
+};
 
 // hooks
 onMounted(() => {
@@ -232,12 +257,15 @@ onMounted(() => {
     // change sv background
     let rgb = hsv2rgb(color.hue, 100, 100);
     colorBg.value = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
-})
-watch(() => props.modelValue, value => {
-    let newVal = value ?? '';
-    innerValue.value = newVal;
 });
-watch(innerValue, value => {
+watch(
+    () => props.modelValue,
+    (value) => {
+        let newVal = value ?? '';
+        innerValue.value = newVal;
+    },
+);
+watch(innerValue, (value) => {
     emit('update:modelValue', value);
 });
 </script>
@@ -273,7 +301,16 @@ watch(innerValue, value => {
             width: 30px;
             height: 200px;
             display: inline-block;
-            background: linear-gradient(180deg, #f00, #ff0 17%, #0f0 33%, #0ff 50%, #00f 67%, #f0f 83%, #f00);
+            background: linear-gradient(
+                180deg,
+                #f00,
+                #ff0 17%,
+                #0f0 33%,
+                #0ff 50%,
+                #00f 67%,
+                #f0f 83%,
+                #f00
+            );
             cursor: pointer;
             .hue-picker {
                 width: 34px;
@@ -293,7 +330,8 @@ watch(innerValue, value => {
             display: inline-block;
             overflow: hidden;
             margin-left: 10px;
-            background: linear-gradient(to top, black, transparent), linear-gradient(to right, white, transparent);
+            background: linear-gradient(to top, black, transparent),
+                linear-gradient(to right, white, transparent);
             cursor: pointer;
             .sv-picker {
                 position: absolute;
@@ -309,8 +347,23 @@ watch(innerValue, value => {
             width: 340px;
             height: 30px;
             @grey: #bbb;
-            background: linear-gradient(45deg, @grey 25%, transparent 25%, transparent 75%, @grey 25%) 0 0,
-                linear-gradient(45deg, @grey 25%, transparent 25%, transparent 75%, @grey 25%) 8px 8px;
+            background:
+                linear-gradient(
+                        45deg,
+                        @grey 25%,
+                        transparent 25%,
+                        transparent 75%,
+                        @grey 25%
+                    )
+                    0 0,
+                linear-gradient(
+                        45deg,
+                        @grey 25%,
+                        transparent 25%,
+                        transparent 75%,
+                        @grey 25%
+                    )
+                    8px 8px;
             background-size: 16px 16px;
             .alpha-cover {
                 width: 100%;
@@ -331,7 +384,7 @@ watch(innerValue, value => {
             margin-top: 6px;
         }
         .warning {
-            font-size: .8rem;
+            font-size: 0.8rem;
             color: red;
             margin-left: 5px;
         }

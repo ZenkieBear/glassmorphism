@@ -9,17 +9,17 @@ const router = createRouter({
         {
             path: '/',
             alias: ['/welcome', '/index', '/index.html', '/index.htm'],
-            component: Welcome
+            component: Welcome,
         },
         {
             path: '/home',
-            component: Home
+            component: Home,
         },
         {
             path: '/about',
-            component: About
-        }
-    ]
-})
+            component: About,
+        },
+    ],
+});
 
 export default router;

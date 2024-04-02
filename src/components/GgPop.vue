@@ -27,12 +27,12 @@
         display: none;
         background: lighten(@primary-color, 50%);
         color: @primary-color;
-        font-size: .8rem;
+        font-size: 0.8rem;
         white-space: nowrap;
         border-radius: 15px;
         border-bottom-left-radius: 4px;
         border: 2px solid @primary-color;
-        box-shadow: 0 0 10px 2px rgba(255, 255, 255, .4);
+        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
     }
     &:hover .content {
         display: inline-block;

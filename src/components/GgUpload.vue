@@ -2,17 +2,21 @@
     <div class="upload-box">
         <label for="upload">
             {{ $t('components.upload') }}
-            <button v-show="path"
+            <button
+                v-show="path"
                 class="btn-clean fa-solid fa-xmark"
-                @click="cancel"></button>
+                @click="cancel"
+            />
         </label>
-        <input type="file"
-            ref="upload"
+        <input
             id="upload"
+            ref="upload"
+            type="file"
             class="upload"
             accept="image/*"
-            @change="handleChange">
-            <!-- 记得实现移除 -->
+            @change="handleChange"
+        />
+        <!-- TODO 记得实现移除 -->
     </div>
 </template>
 
@@ -22,11 +26,10 @@ import { ref } from 'vue';
 // vars
 const path = ref<string>('');
 const upload = ref();
-const emits = defineEmits(['change'])
+const emits = defineEmits(['change']);
 
 // methods
-const handleChange = (e: Event) => {
-    debugger
+const handleChange = () => {
     let file = upload.value.files[0];
     let url = getUrl(file);
     path.value = url;
@@ -42,12 +45,12 @@ const getUrl = (file: File): string => {
         url = window.URL.createObjectURL(file);
     }
     return url;
-}
+};
 const cancel = () => {
     upload.value.value = '';
     path.value = '';
     emits('change', '');
-}
+};
 </script>
 
 <style lang="less" scoped>
@@ -63,7 +66,7 @@ const cancel = () => {
         background-color: white;
         color: @primary-color;
         cursor: pointer;
-        transition: all .3s ease-in-out;
+        transition: all 0.3s ease-in-out;
         user-select: none;
     }
     &:hover label {
@@ -82,11 +85,11 @@ const cancel = () => {
     .btn-clean {
         z-index: 2;
         position: relative;
-        width: .8rem;
-        height: .8rem;
+        width: 0.8rem;
+        height: 0.8rem;
         outline: 2px solid transparent;
         border: none;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
         color: @primary-color;
         background: none;
         cursor: pointer;
@@ -99,11 +102,11 @@ const cancel = () => {
             display: block;
             width: 120%;
             height: 120%;
-            border-radius: .8rem;
+            border-radius: 0.8rem;
             content: '';
             background-color: @hover-color;
             clip-path: circle(0);
-            transition: all .3s ease-in-out;
+            transition: all 0.3s ease-in-out;
         }
         &:hover {
             &::after {

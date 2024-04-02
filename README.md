@@ -12,12 +12,12 @@
 
 This is a glass-morphism CSS generator that makes it easier for designers and front-end developers to create their components.
 
-## Suggested Tools 
+## Suggested Tools
 
-* We recommend using [VSCode](https://code.visualstudio.com/) as your code editor.
-* Suggested extensions for VSCode:
-  * [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and turn off Vetur) 
-  * [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+-   We recommend using [VSCode](https://code.visualstudio.com/) as your code editor.
+-   Suggested extensions for VSCode:
+    -   [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and turn off Vetur)
+    -   [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
 ## Getting Started
 

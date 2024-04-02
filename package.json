@@ -9,7 +9,8 @@
     "start": "serve ./dist",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore src",
     "fix": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "prepare": "husky"
   },
   "dependencies": {
     "clipboard": "^2.0.11",
@@ -29,6 +30,8 @@
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-vue": "^9.24.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "3.2.5",
     "typescript": "^5.4.3",
     "vite": "^3.2.4",

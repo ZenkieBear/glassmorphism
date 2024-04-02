@@ -3,60 +3,59 @@
 
 name: CI GitHub Pages
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: ['main']
+    pull_request:
+        branches: ['main']
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+    contents: read
+    pages: write
+    id-token: write
 concurrency:
-  group: 'pages'
-  cancel-in-progress: true
+    group: 'pages'
+    cancel-in-progress: true
 jobs:
-  # lint:
-  #   name: Linting 🔍
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       node-version: [16.x, 18.x]
-  #   steps:
-  #     - name: Checkout 🛎️
-  #       uses: actions/checkout@v4
-  #     - name: Linting 
-  #       uses: actions/setup-node@v3
-  #       with: ${{ matrix.node-version }}
-  #     - run: npm install
-  #     - run: npm run lint
-    
-  build-and-deploy:
-    name: Build & Deploying
-    # needs: lint
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    strategy:
-      matrix:
-        node-version: [18.18.0]
-    steps:
-      - name: 🛎️ Checkout
-        uses: actions/checkout@v4
-      - name: 🚧 Build with Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm install
-      - run: npm run build
-      # Avoid fresh page 404 result
-      - run: cp dist/index.html dist/404.html
-      - name: 🚀 Deploying
-        uses: actions/configure-pages@v3
-      - uses: actions/upload-pages-artifact@v2
-        with:
-          path: './dist'
-      - uses: actions/deploy-pages@v1
-      - run: echo '✅ Success deployed!'
-      
+    # lint:
+    #   name: Linting 🔍
+    #   runs-on: ubuntu-latest
+    #   strategy:
+    #     matrix:
+    #       node-version: [16.x, 18.x]
+    #   steps:
+    #     - name: Checkout 🛎️
+    #       uses: actions/checkout@v4
+    #     - name: Linting
+    #       uses: actions/setup-node@v3
+    #       with: ${{ matrix.node-version }}
+    #     - run: npm install
+    #     - run: npm run lint
+
+    build-and-deploy:
+        name: Build & Deploying
+        # needs: lint
+        runs-on: ubuntu-latest
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        strategy:
+            matrix:
+                node-version: [18.18.0]
+        steps:
+            - name: 🛎️ Checkout
+              uses: actions/checkout@v4
+            - name: 🚧 Build with Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+            - run: npm install
+            - run: npm run build
+            # Avoid fresh page 404 result
+            - run: cp dist/index.html dist/404.html
+            - name: 🚀 Deploying
+              uses: actions/configure-pages@v3
+            - uses: actions/upload-pages-artifact@v2
+              with:
+                  path: './dist'
+            - uses: actions/deploy-pages@v1
+            - run: echo '✅ Success deployed!'

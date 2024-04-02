@@ -10,8 +10,6 @@ import '@/assets/style/fontawesome/css/fontawesome.css';
 import '@/assets/style/fontawesome/css/brands.css';
 import '@/assets/style/fontawesome/css/solid.css';
 
-const app = createApp(App)
-.use(router)
-.use(i18n);
+const app = createApp(App).use(router).use(i18n);
 
 app.mount('#app');

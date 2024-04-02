@@ -3,7 +3,10 @@
         <nav>
             <span>
                 {{ $t('footer.star.prefix') }}
-                <a href="https://github.com/ZenkieBear/glassmorphism" class="link">
+                <a
+                    href="https://github.com/ZenkieBear/glassmorphism"
+                    class="link"
+                >
                     <i class="fa-brands fa-github"></i>
                 </a>
                 {{ $t('footer.star.suffix') }}
@@ -11,16 +14,22 @@
         </nav>
         <div class="copyright">
             {{ $t('footer.license.prefix') }}
-            <a href="https://github.com/ZenkieBear/glassmorphism/blob/main/LICENSE'" class="link">MIT</a>
+            <a
+                href="https://github.com/ZenkieBear/glassmorphism/blob/main/LICENSE'"
+                class="link"
+                >MIT</a
+            >
             {{ $t('footer.license.suffix') }}
             |
-            {{ $t('footer.copyPrefix', { year }) }} <a href="https://github.com/ZenkieBear" class="link">Zenkie Bear</a> .
+            {{ $t('footer.copyPrefix', { year }) }}
+            <a href="https://github.com/ZenkieBear" class="link">Zenkie Bear</a>
+            .
         </div>
     </footer>
 </template>
 
 <script lang="ts" setup>
-const year = new Date().getFullYear()
+const year = new Date().getFullYear();
 </script>
 
 <style lang="less" scoped>
@@ -35,7 +44,7 @@ footer {
     flex-direction: column;
     height: clamp(100px, 50vh, 50vh);
     padding: 30px 50px 50px;
-    background-color: rgba(255, 255, 255, .6);
+    background-color: rgba(255, 255, 255, 0.6);
     backdrop-filter: @default-filter;
     color: @font-color;
     position: relative;
@@ -58,7 +67,7 @@ footer {
             background-color: white;
             width: 100%;
             height: 100%;
-            transition: all .3s ease;
+            transition: all 0.3s ease;
         }
         &:hover::after {
             top: 0;
@@ -66,7 +75,7 @@ footer {
         }
     }
     nav {
-        >span {
+        > span {
             display: flex;
             align-items: center;
         }

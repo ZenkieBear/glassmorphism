@@ -1,4 +1,4 @@
-import { createI18n } from "vue-i18n";
+import { createI18n } from 'vue-i18n';
 import zh from './zh';
 import en from './en';
 
@@ -8,19 +8,19 @@ const i18n = createI18n({
     locale: localStorage.getItem('lang') || 'en',
     messages: {
         zh: zh,
-        en: en
-    }
+        en: en,
+    },
 });
 // define all supported languages
 export const langs = [
     {
         name: '简体中文',
-        value: 'zh'
+        value: 'zh',
     },
     {
         name: 'English',
-        value: 'en'
-    }
-]
+        value: 'en',
+    },
+];
 
 export default i18n;

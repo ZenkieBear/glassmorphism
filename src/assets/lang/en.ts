@@ -1,27 +1,27 @@
 export default {
     welcome: {
         title: 'Glassmorphism Generator',
-        desc: 'It\'s a glassmorphism CSS generator, help designers/frontend engineers to design their components.',
-        start: 'Get Start'
+        desc: "It's a glassmorphism CSS generator, help designers/frontend engineers to design their components.",
+        start: 'Get Start',
     },
     components: {
-        upload: 'Choose'
+        upload: 'Choose',
     },
     nav: {
-        start : 'Start',
+        start: 'Start',
         download: 'Download',
-        about: 'About'
+        about: 'About',
     },
     footer: {
         license: {
             prefix: '',
-            suffix: 'Licensed'
+            suffix: 'Licensed',
         },
         copyPrefix: 'Copyright {year} ',
         star: {
             prefix: 'Star on',
-            suffix: ''
-        }
+            suffix: '',
+        },
     },
     home: {
         tools: {
@@ -31,44 +31,45 @@ export default {
                 color: 'Color',
                 blur: 'Blur',
                 saturation: 'Saturation',
-                radius: 'Radius'
+                radius: 'Radius',
             },
             other: {
                 title: 'Other',
                 bg: {
                     label: 'Background',
-                    pop: 'Choose a local picture to replace the random backgorund.'
-                }
-            }
+                    pop: 'Choose a local picture to replace the random backgorund.',
+                },
+            },
         },
         code: {
             title: 'CSS Code',
-            copied: 'Copied!'
-        }
+            copied: 'Copied!',
+        },
     },
     about: {
         vision: {
             title: 'Vision',
-            content: 'Faster design and simpler use!'
+            content: 'Faster design and simpler use!',
         },
         how: {
             title: 'How was Glassmorphism Generator cames?',
-            content: 'I wanted a tool to help myself and others to generate <a href="https://webflow.com/blog/glassmorphism">glassmorphism</a> style codes. And it comes now.'
+            content:
+                'I wanted a tool to help myself and others to generate <a href="https://webflow.com/blog/glassmorphism">glassmorphism</a> style codes. And it comes now.',
         },
         thanks: {
             title: 'Special Thanks',
             jobs: {
-                translate: 'Translate'
+                translate: 'Translate',
             },
-            tips: 'Tips: If your infomation changed, please contact Zenkie Bear. You can also push Pull Request. : )'
+            tips: 'Tips: If your infomation changed, please contact Zenkie Bear. You can also push Pull Request. : )',
         },
         contact: {
             title: 'Contact',
             tips: 'If you have any questions or suggestions, you can contact me!😁',
             contacts: {
                 email: 'Email',
-                wechat: 'WeChat'
-            }
-        }
-    }
-}
+                wechat: 'WeChat',
+            },
+        },
+    },
+};

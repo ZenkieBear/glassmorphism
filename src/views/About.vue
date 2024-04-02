@@ -2,35 +2,50 @@
     <gl-header />
     <main>
         <section class="how">
-            <a name="how" href="#how" class="title">{{ $t('about.how.title') }}</a>
+            <a name="how" href="#how" class="title">{{
+                $t('about.how.title')
+            }}</a>
+            <!-- eslint-disable-next-line vue/no-v-html -->
             <div class="content" v-html="$t('about.how.content')"></div>
         </section>
         <section class="thanks">
-            <a name="thanks" href="#thanks" class="title">{{ $t('about.thanks.title') }}</a>
+            <a name="thanks" href="#thanks" class="title">{{
+                $t('about.thanks.title')
+            }}</a>
             <ul>
-                <li v-for="con in contributors">
+                <li v-for="(con, idx) in contributors" :key="idx">
                     <a :href="con.site">
-                        <img class="icon"
+                        <img
+                            class="icon"
                             :src="con.avartars"
-                            :title="con.name">
-                    </a> -
+                            :title="con.name"
+                        />
+                    </a>
+                    -
                     {{ $t('about.thanks.jobs.' + con.job) }}
                 </li>
             </ul>
+            <!-- eslint-disable-next-line vue/no-v-html -->
             <div class="tips" v-html="$t('about.thanks.tips')"></div>
         </section>
         <section class="vision">
-            <a name="vision" href="#vision" class="title">{{ $t('about.vision.title') }}</a>
+            <a name="vision" href="#vision" class="title">{{
+                $t('about.vision.title')
+            }}</a>
             <div class="content">
                 {{ $t('about.vision.content') }}
             </div>
         </section>
         <section class="contact">
-            <a name="contact" href="#contact" class="title">{{ $t('about.contact.title') }}</a>
+            <a name="contact" href="#contact" class="title">{{
+                $t('about.contact.title')
+            }}</a>
             <div class="content">
                 <ul>
-                    <li v-for="(val, key) in contacts">
-                        <span class="label">{{ $t(`about.contact.contacts.${key}`) }}: </span>{{ val }}
+                    <li v-for="(val, key) in contacts" :key="key">
+                        <span class="label"
+                            >{{ $t(`about.contact.contacts.${key}`) }}: </span
+                        >{{ val }}
                     </li>
                 </ul>
             </div>
@@ -46,22 +61,22 @@ import GlFooter from '@/views/global/GlFooter.vue';
 import { reactive } from 'vue';
 
 type Contributor = {
-    name: string,
-    job: string,
-    avartars: string,
-    site: string
-}
+    name: string;
+    job: string;
+    avartars: string;
+    site: string;
+};
 const contributors = reactive<Array<Contributor>>([
     {
         name: 'John Pong',
         job: 'translate',
         avartars: 'https://avatars.githubusercontent.com/u/96033956?v=4',
-        site: 'https://github.com/asdhuiashduias'
-    }
+        site: 'https://github.com/asdhuiashduias',
+    },
 ]);
 const contacts = reactive({
     email: 'zq@zenkie.cn',
-    wechat: 'zenkiebear'
+    wechat: 'zenkiebear',
 });
 </script>
 
@@ -108,7 +123,7 @@ main {
                     background-color: @font-color;
                     width: 100%;
                     height: 100%;
-                    transition: all .3s ease;
+                    transition: all 0.3s ease;
                 }
                 &:hover::after {
                     top: 0;
@@ -118,9 +133,9 @@ main {
         }
         .tips {
             color: fade(white, 70);
-            font-size: .8rem;
+            font-size: 0.8rem;
         }
-        &+section {
+        & + section {
             margin-top: 50px;
         }
         &.thanks {
