@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
+import eslintPlugin from 'vite-plugin-eslint'
 
 const resolve = (relativePath) => {
   return path.resolve(__dirname, relativePath);
@@ -11,7 +12,7 @@ export default defineConfig({
     port: 5000,
     host: '0.0.0.0',
   },
-  plugins: [vue()],
+  plugins: [vue(), eslintPlugin()],
   resolve: {
     alias: {
       '@': resolve( './src'),
