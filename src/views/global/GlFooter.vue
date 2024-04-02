@@ -3,7 +3,7 @@
         <nav>
             <span>
                 {{ $t('footer.star.prefix') }}
-                <a href="" class="link">
+                <a href="https://github.com/ZenkieBear/glassmorphism" class="link">
                     <i class="fa-brands fa-github"></i>
                 </a>
                 {{ $t('footer.star.suffix') }}
