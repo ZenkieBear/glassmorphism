@@ -48,7 +48,11 @@
 import GgSubMenu from '@/components/GgSubMenu.vue'
 import i18n, { langs } from '@/assets/lang/index';
 
+type Lang = 'zh' | 'en'
+const isLang = (lang: string): lang is Lang => !!langs.find(option => option.value === lang)
+
 const toggleLang = (lang: string) => {
+    if (!isLang(lang)) return
     i18n.global.locale = lang;
     localStorage.setItem('lang', lang);
 };
@@ -128,9 +132,6 @@ header {
                         background: white;
                     }
                 }
-            }
-            &:hover ul {
-                // display: block;
             }
         }
     }
