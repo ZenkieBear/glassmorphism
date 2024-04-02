@@ -14,10 +14,14 @@
             <a href="https://github.com/ZenkieBear/glassmorphism/blob/main/LICENSE'" class="link">MIT</a>
             {{ $t('footer.license.suffix') }}
             |
-            {{ $t('footer.copyPrefix', {year: 2022}) }} <a href="https://github.com/ZenkieBear" class="link">Zenkie Bear</a> .
+            {{ $t('footer.copyPrefix', { year }) }} <a href="https://github.com/ZenkieBear" class="link">Zenkie Bear</a> .
         </div>
     </footer>
 </template>
+
+<script lang="ts" setup>
+const year = new Date().getFullYear()
+</script>
 
 <style lang="less" scoped>
 @default-filter: blur(8px);
